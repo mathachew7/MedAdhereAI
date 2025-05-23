@@ -6,57 +6,62 @@
 **MedAdhereAI** is a research-grade machine learning pipeline built to **predict the risk of medication non-adherence** using real-world patient refill and claims data.  
 It targets chronic conditions such as **diabetes** and **hypertension**, especially in resource-limited health systems.
 
-The project focuses on interpretable AI, temporal feature engineering, and real-world clinical relevance — with the goal of publishing a peer-reviewed research paper.
+The project focuses on interpretable AI, temporal feature engineering, and real-world clinical relevance — with the goal of publishing a peer-reviewed research paper and supporting Subash Yadav’s EB-2 NIW petition.
 
 ---
 
 ## ✅ Project Status
 
-> **Phase 1 Complete**  
-Exploratory data analysis, binary target creation, date parsing, and refill behavior modeling have been completed.  
-The dataset is now ready for feature engineering and model development.
+> **Phase 3 Complete**  
+Modeling, evaluation, and explainability foundation is done.
+
+> **Phase 4 In Progress**  
+Visuals being finalized and saved; public health framing complete.
 
 ---
 
 ## 📌 Full Project Plan
 
-### ✅ Phase 1: Exploratory Data Analysis (Done)
-- Load and inspect patient-level claim/refill data
-- Analyze adherence distribution and patterns
-- Convert key dates to `datetime` format
-- Engineer temporal features: time between service, assessment, receipt
-- Calculate `DAYS_SINCE_LAST_REFILL` per patient
-- Visualize refill gap distribution
-- Create `ADHERENT_BINARY` target variable
+### ✅ Phase 1: Exploratory Data Analysis
+- Loaded raw claim/refill data
+- Created binary adherence label `ADHERENT_BINARY` (threshold ≥ 8)
+- Parsed all dates for time-based analysis
+- Engineered refill-based temporal features
+- Visualized refill cycles (30/60/90 days)
+- Established foundation for feature engineering
 
 ---
 
-### 🚧 Phase 2: Feature Engineering (In Progress)
-- Aggregate patient-level features:
-  - Mean/max refill gap
-  - Total visits, irregularity scores
-  - Specialty visits (optional)
-- Merge auxiliary datasets (dialysis, ophthalmology, etc.)
-- Prepare modeling-ready final dataset
+### ✅ Phase 2: Feature Engineering
+- Aggregated patient-level behavior:
+  - `avg_refill_gap`, `max_refill_gap`, `total_visits`
+- Merged latest adherence label per patient
+- Added demographics: `GENDER`, `AGE`
+- Cleaned and imputed missing values logically
+- Exported modeling-ready dataset (`.csv` and `.pkl`)
 
 ---
 
-### 🔜 Phase 3: Model Building
-- Train baseline models:
-  - Logistic Regression
-  - Random Forest
-  - XGBoost
-- Handle class imbalance (if needed)
-- Evaluate using AUC, F1, precision/recall
-- Tune and select best model
+### ✅ Phase 3: Model Building and Evaluation
+- Trained interpretable and ensemble models:
+  - Logistic Regression (ROC AUC = 0.82)
+  - Random Forest (ROC AUC = 0.77)
+- Performed 5-fold cross-validation for robustness
+- Evaluated using precision, recall, F1-score, AUC
+- Checked model calibration (Brier score = 0.1749)
+- Saved trained models for deployment (`.pkl` format)
 
 ---
 
-### 🔍 Phase 4: Model Explainability
-- Use SHAP to interpret predictions
-- Identify top drivers of non-adherence
-- Create global and patient-level SHAP plots
-- Build transparent outputs for research/publication
+### 🚧 Phase 4: Explainability & Impact (In Progress)
+- [x] Loaded trained models and data
+- [x] SHAP global + summary plots
+- [x] Public health impact + NIW framing
+- [ ] Logistic Regression coefficient bar chart
+- [ ] Random Forest feature importance chart
+- [ ] SHAP local explanation for 1 patient
+- [ ] Save all visual assets to `reports/figures/`
+- [ ] (Optional) Build Streamlit demo for real-world application
 
 ---
 
@@ -65,23 +70,25 @@ The dataset is now ready for feature engineering and model development.
 ```bash
 MedAdhereAI/
 ├── dataset/
-│   └── raw/                          # Raw CSVs (excluded from GitHub)
+│   ├── raw/
+│   └── processed/
+│       ├── final_model_data.csv
+│       └── final_model_data.pkl
+├── model/
+│   ├── logistic_regression_model.pkl
+│   └── random_forest_model.pkl
 ├── notebooks/
-│   ├── 01_data_exploration.ipynb     # ✅ EDA + binary label creation
-│   ├── 02_feature_engineering.ipynb  # ⏳ In progress
-│   ├── 03_model_training.ipynb       # ⏳ Model training pipeline
-│   └── 04_model_explainability.ipynb # ⏳ SHAP analysis
-├── scripts/
-│   ├── data_cleaning.py              # Modular cleaning logic
-│   ├── feature_engineering.py
-│   ├── model_utils.py
-│   └── shap_explainer.py
+│   ├── 01_data_exploration.ipynb
+│   ├── 02_feature_engineering.ipynb
+│   ├── 03_model_training.ipynb
+│   └── 04_model_explainability_and_impact.ipynb
 ├── reports/
-│   └── figures/                      # Output plots and result images
-├── requirements.txt                 # All required packages
-├── .gitignore
-├── README.md                        # This file
-└── LICENSE                          # MIT License
+│   └── figures/
+├── scripts/
+│   └── (optional reusable code blocks)
+├── requirements.txt
+├── README.md
+└── LICENSE
 ```
 
 ---
