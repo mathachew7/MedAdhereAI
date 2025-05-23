@@ -1,4 +1,3 @@
-
 # 🧠 MedAdhereAI: Predicting Medication Adherence Risk Using Real-World Data
 
 [![Python](https://img.shields.io/badge/Python-3.11-blue.svg)](https://www.python.org/downloads/release/python-3110/)
@@ -18,6 +17,20 @@ MedAdhereAI is a research-grade machine learning pipeline built to **predict the
 
 ---
 
+## 🧠 Current Progress (Phase 1 Complete)
+
+Phase 1 focused on data exploration and label creation:
+
+- ✅ Cleaned and loaded raw diabetes adherence dataset
+- ✅ Created binary adherence target using domain threshold (≥ 8)
+- ✅ Converted all date columns for time-based analysis
+- ✅ Engineered features: time between service and assess/receive
+- ✅ Computed refill gaps per patient using `SERVICE DATE`
+- ✅ Visualized refill gap distribution (e.g., 30/60/90 day cycles)
+- ✅ Confirmed readiness for feature aggregation and modeling
+
+---
+
 ## 📁 Project Structure
 
 ```bash
@@ -25,12 +38,12 @@ MedAdhereAI/
 ├── dataset/
 │   └── raw/                          # Real-world data (CSV files, not committed)
 ├── notebooks/
-│   ├── 01_data_exploration.ipynb     # EDA + target engineering
-│   ├── 02_feature_engineering.ipynb
-│   ├── 03_model_training.ipynb
-│   └── 04_model_explainability.ipynb
+│   ├── 01_data_exploration.ipynb     # ✅ EDA + target engineering (complete)
+│   ├── 02_feature_engineering.ipynb  # ⏳ Feature aggregation (in progress)
+│   ├── 03_model_training.ipynb       # ⏳ Model building
+│   └── 04_model_explainability.ipynb # ⏳ SHAP analysis
 ├── scripts/
-│   ├── data_cleaning.py
+│   ├── data_cleaning.py              # Placeholder for modular code
 │   ├── feature_engineering.py
 │   ├── model_utils.py
 │   └── shap_explainer.py
@@ -58,7 +71,7 @@ MedAdhereAI/
 
 ```bash
 # 1. Clone the repo
-git clone https://github.com/YOUR_USERNAME/MedAdhereAI.git
+git clone https://github.com/mathachew7/MedAdhereAI.git
 cd MedAdhereAI
 
 # 2. Create & activate virtual environment
@@ -81,7 +94,7 @@ jupyter notebook
 - ✅ SHAP plots showing top risk drivers
 - ✅ ROC AUC & confusion matrix from multiple classifiers
 
-> Visuals will be added soon as Phase 2 and 3 progress.
+> Visuals and modeling results will be added in future phases.
 
 ---
 
@@ -94,7 +107,7 @@ This project is licensed under the [MIT License](LICENSE).
 ## 🙌 Credits
 
 - Dataset by researchers on [Mendeley Data](https://data.mendeley.com/datasets/zkp7sbbx64/2)
-- Built by Subash Yadav for real-world predictive health research
+- Built by **Subash Yadav** for real-world predictive health research
 
 ---
 
