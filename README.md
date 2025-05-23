@@ -6,17 +6,16 @@
 **MedAdhereAI** is a research-grade machine learning pipeline built to **predict the risk of medication non-adherence** using real-world patient refill and claims data.  
 It targets chronic conditions such as **diabetes** and **hypertension**, especially in resource-limited health systems.
 
-The project focuses on interpretable AI, temporal feature engineering, and real-world clinical relevance — with the goal of publishing a peer-reviewed research paper and supporting Subash Yadav’s EB-2 NIW petition.
+The project focuses on interpretable AI, temporal feature engineering, and real-world clinical relevance — with the goal of publishing a peer-reviewed research paper.
 
 ---
 
 ## ✅ Project Status
 
-> **Phase 3 Complete**  
-Modeling, evaluation, and explainability foundation is done.
-
-> **Phase 4 In Progress**  
-Visuals being finalized and saved; public health framing complete.
+**Phase 1:** ✅ Completed  
+**Phase 2:** ✅ Completed  
+**Phase 3:** ✅ Completed  
+**Phase 4:** 🚧 In Progress (visuals and impact framing being finalized)
 
 ---
 
@@ -24,44 +23,39 @@ Visuals being finalized and saved; public health framing complete.
 
 ### ✅ Phase 1: Exploratory Data Analysis
 - Loaded raw claim/refill data
-- Created binary adherence label `ADHERENT_BINARY` (threshold ≥ 8)
-- Parsed all dates for time-based analysis
-- Engineered refill-based temporal features
-- Visualized refill cycles (30/60/90 days)
-- Established foundation for feature engineering
-
----
+- Created binary adherence label (`ADHERENT_BINARY`, threshold ≥ 8)
+- Parsed date columns for time-based feature creation
+- Engineered refill-related features like service-assess gaps
+- Calculated `DAYS_SINCE_LAST_REFILL`
+- Visualized refill behavior (30/60/90-day cycles)
 
 ### ✅ Phase 2: Feature Engineering
-- Aggregated patient-level behavior:
+- Aggregated patient-level features:
   - `avg_refill_gap`, `max_refill_gap`, `total_visits`
-- Merged latest adherence label per patient
-- Added demographics: `GENDER`, `AGE`
-- Cleaned and imputed missing values logically
-- Exported modeling-ready dataset (`.csv` and `.pkl`)
-
----
+- Merged most recent `ADHERENT_BINARY` label
+- Added `AGE` and `GENDER` demographic features
+- Handled missing values (logical imputation and column drops)
+- Exported cleaned data (`final_model_data.csv`, `.pkl`)
 
 ### ✅ Phase 3: Model Building and Evaluation
-- Trained interpretable and ensemble models:
-  - Logistic Regression (ROC AUC = 0.82)
-  - Random Forest (ROC AUC = 0.77)
-- Performed 5-fold cross-validation for robustness
-- Evaluated using precision, recall, F1-score, AUC
-- Checked model calibration (Brier score = 0.1749)
-- Saved trained models for deployment (`.pkl` format)
+- Models trained:
+  - Logistic Regression (ROC AUC = **0.82**)
+  - Random Forest (ROC AUC = **0.77**)
+- Evaluated using:
+  - Accuracy, F1-score, Precision, Recall
+  - ROC AUC + Cross-validation
+  - Brier Score = **0.1749** (well-calibrated)
+- Exported `.pkl` models for reuse and explainability
 
----
-
-### 🚧 Phase 4: Explainability & Impact (In Progress)
-- [x] Loaded trained models and data
-- [x] SHAP global + summary plots
-- [x] Public health impact + NIW framing
-- [ ] Logistic Regression coefficient bar chart
-- [ ] Random Forest feature importance chart
-- [ ] SHAP local explanation for 1 patient
-- [ ] Save all visual assets to `reports/figures/`
-- [ ] (Optional) Build Streamlit demo for real-world application
+### 🚧 Phase 4: Explainability & Impact
+- [x] SHAP summary plot complete
+- [x] Model calibration and Brier evaluation
+- [x] NIW public health impact framing
+- [x] Logistic regression coefficient bar chart
+- [x] Random forest feature importance plot
+- [ ] SHAP local explanation (1 patient)
+- [ ] Export all visuals to `reports/figures/`
+- [ ] Optional Streamlit app for real-time prediction
 
 ---
 
@@ -127,16 +121,29 @@ jupyter notebook
 
 ## 📊 Sample Outputs
 
-- 📈 ADHERENT_BINARY label (78% adherent / 22% non-adherent)
-- ⏳ Time-based features (service gap, refill intervals)
-- 📊 Refill gap distribution showing strong 30/60/90-day cycles
-- 🧠 Modeling and SHAP plots coming in Phase 3 and 4
+- ADHERENT_BINARY label (78% adherent / 22% non-adherent)
+- Logistic Regression AUC: 0.82 | Random Forest AUC: 0.77
+- Brier Score: 0.1749 (well-calibrated)
+- SHAP summary shows total_visits, AGE, refill_gap as top predictors
+- Additional plots (coefficients, RF importance, local SHAP) coming soon
+
+---
+
+## 💡 Public Health Impact
+Medication non-adherence contributes to over $300 billion in preventable U.S. healthcare costs annually.
+This project provides an interpretable system to flag patients at risk of skipping essential medications using refill behavior and minimal demographic data.
+
+This supports:
+- Early risk stratification
+- Targeted outreach and follow-ups
+- Clinically explainable, data-driven care optimization
 
 ---
 
 ## 📄 License
 
 This project is licensed under the [MIT License](LICENSE).
+Use freely with citation.
 
 ---
 
