@@ -1,27 +1,22 @@
 # Ignore virtual environment
 .venv/
 
-# Ignore raw datasets
-dataset/raw/*.csv
-dataset/raw/*.rar
+# Ignore dataset folder and archives
+dataset/
+*.rar
+*.zip
 
-
-# Ignore all notebooks except EDA
-notebooks/03_model_training.ipynb
-notebooks/04_model_explainability.ipynb
+# Ignore all notebooks except Phase 2 feature engineering
+notebooks/*
+!notebooks/02_feature_engineering.ipynb
 
 # Ignore scripts until finalized
 scripts/
 
-
 # Ignore system files
 .DS_Store
 
-# Ignore dataset archives
-*.rar
-*.zip
-
-# Ignore output files
+# Ignore Jupyter and Python output files
 *.ipynb_checkpoints/
 __pycache__/
 *.pyc
