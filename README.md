@@ -36,7 +36,18 @@ MedAdhereAI is a research-grade machine learning pipeline built to **predict the
   - Dropped intermediate date fields after transformation
 - Exported cleaned dataset as `.csv` and `.pkl` for modeling
 
-👉 The dataset is now ready for supervised learning in Phase 3.
+### ✅ Phase 3: Model Building & Evaluation
+- Trained baseline models:
+  - **Logistic Regression** (ROC AUC: 0.82)
+  - **Random Forest** (ROC AUC: 0.77)
+- Performed evaluation with accuracy, F1-score, and ROC AUC
+- Validated model stability using 5-fold cross-validation
+- Assessed probability calibration via Brier score and calibration curve
+- Applied SHAP for local and global explainability
+- Exported trained models for deployment (`.pkl` format)
+
+👉 Now entering Phase 4: Visualization, public health framing, and real-world deployment.
+
 
 ---
 
