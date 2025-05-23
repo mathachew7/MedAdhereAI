@@ -7,7 +7,6 @@ dataset/raw/*.rar
 
 
 # Ignore all notebooks except EDA
-notebooks/02_feature_engineering.ipynb
 notebooks/03_model_training.ipynb
 notebooks/04_model_explainability.ipynb
 

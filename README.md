@@ -17,17 +17,26 @@ MedAdhereAI is a research-grade machine learning pipeline built to **predict the
 
 ---
 
-## 🧠 Current Progress (Phase 1 Complete)
+## 🧠 Current Progress (Phase 2 Complete)
 
-Phase 1 focused on data exploration and label creation:
+### ✅ Phase 1: Exploratory Data Analysis
+- Cleaned and loaded raw diabetes adherence dataset
+- Created binary adherence target using domain threshold (≥ 8)
+- Converted date columns to datetime for time-based feature creation
+- Engineered temporal features: time between service, assess, and refill dates
+- Computed refill gaps per patient and visualized refill behavior trends
 
-- ✅ Cleaned and loaded raw diabetes adherence dataset
-- ✅ Created binary adherence target using domain threshold (≥ 8)
-- ✅ Converted all date columns for time-based analysis
-- ✅ Engineered features: time between service and assess/receive
-- ✅ Computed refill gaps per patient using `SERVICE DATE`
-- ✅ Visualized refill gap distribution (e.g., 30/60/90 day cycles)
-- ✅ Confirmed readiness for feature aggregation and modeling
+### ✅ Phase 2: Feature Engineering
+- Aggregated refill behavior features per patient:
+  - `avg_refill_gap`, `max_refill_gap`, `total_visits`
+- Merged most recent binary adherence label (`ADHERENT_BINARY`) per patient
+- Enriched dataset with demographic features: `GENDER` and `AGE`
+- Handled missing values:
+  - Refill gaps filled with 0.0 for single-visit patients
+  - Dropped intermediate date fields after transformation
+- Exported cleaned dataset as `.csv` and `.pkl` for modeling
+
+👉 The dataset is now ready for supervised learning in Phase 3.
 
 ---
 
