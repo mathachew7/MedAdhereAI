@@ -17,7 +17,7 @@ MedAdhereAI is a research-grade machine learning pipeline built to **predict the
 
 ---
 
-## 🧠 Current Progress (Phase 2 Complete)
+## 🧠 Current Progress (Phase 3 Complete)
 
 ### ✅ Phase 1: Exploratory Data Analysis
 - Cleaned and loaded raw diabetes adherence dataset
