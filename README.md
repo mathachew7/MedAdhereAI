@@ -17,16 +17,16 @@ MedAdhereAI is a research-grade machine learning pipeline built to **predict the
 
 ---
 
-## 🧠 Current Progress (Phase 2 Complete)
+# 🧠 Current Progress (**Complete**)
 
-### ✅ Phase 1: Exploratory Data Analysis
+## ✅ Phase 1: Exploratory Data Analysis
 - Cleaned and loaded raw diabetes adherence dataset
 - Created binary adherence target using domain threshold (≥ 8)
 - Converted date columns to datetime for time-based feature creation
 - Engineered temporal features: time between service, assess, and refill dates
 - Computed refill gaps per patient and visualized refill behavior trends
 
-### ✅ Phase 2: Feature Engineering
+## ✅ Phase 2: Feature Engineering
 - Aggregated refill behavior features per patient:
   - `avg_refill_gap`, `max_refill_gap`, `total_visits`
 - Merged most recent binary adherence label (`ADHERENT_BINARY`) per patient
@@ -36,7 +36,7 @@ MedAdhereAI is a research-grade machine learning pipeline built to **predict the
   - Dropped intermediate date fields after transformation
 - Exported cleaned dataset as `.csv` and `.pkl` for modeling
 
-### ✅ Phase 3: Model Building & Evaluation
+## ✅ Phase 3: Model Building & Evaluation
 - Trained baseline models:
   - **Logistic Regression** (ROC AUC: 0.82)
   - **Random Forest** (ROC AUC: 0.77)
@@ -46,8 +46,12 @@ MedAdhereAI is a research-grade machine learning pipeline built to **predict the
 - Applied SHAP for local and global explainability
 - Exported trained models for deployment (`.pkl` format)
 
-👉 Now entering Phase 4: Visualization, public health framing, and real-world deployment.
+## ✅ Phase 4: Visualization, Public Health Framing, and Real-World Deployment
+- All visualizations (SHAP plots, feature importance, calibration curve) completed
+- Public health impact framing and interpretation added
+- Ready for research publication, deployment, and stakeholder engagement
 
+🎉 **All project phases are complete as per the attached documentation and deliverables.**
 
 ---
 
@@ -108,13 +112,29 @@ jupyter notebook
 
 ---
 
-## 🧪 Sample Output Preview
+## 📊 Sample Outputs
 
-- ✅ ADHERENCE target engineered using refill levels
-- ✅ SHAP plots showing top risk drivers
-- ✅ ROC AUC & confusion matrix from multiple classifiers
+- **ADHERENT_BINARY** label (78% adherent / 22% non-adherent)
+- Logistic Regression AUC: **0.82** | Random Forest AUC: **0.77**
+- Brier Score: **0.1749** (well-calibrated)
+- SHAP summary: `total_visits`, `AGE`, `refill_gap` as top predictors
+- Logistic Regression Coefficients: Bar plot
+- Random Forest Feature Importance: Bar plot
+- SHAP Local Explanations: Individual-level interpretability
 
-> Visuals and modeling results will be added in future phases.
+All outputs, visuals, and impact framing have been generated and included in the documentation.
+
+---
+
+## 💡 Public Health Impact
+
+Medication non-adherence contributes to over **$300 billion** in preventable U.S. healthcare costs annually.  
+This project provides an interpretable system to **flag patients at risk** of skipping essential medications using refill behavior and minimal demographic data.
+
+This supports:
+- Early risk stratification
+- Targeted outreach and follow-ups
+- Clinically explainable, data-driven care optimization
 
 ---
 

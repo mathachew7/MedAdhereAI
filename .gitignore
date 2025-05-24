@@ -6,14 +6,13 @@ dataset/
 *.rar
 *.zip
 
-# Ignore models and reports
-models/
-
+# Ignore models and reports and plots
+model/
 reports/
 
-# Ignore all notebooks except Phase 2 feature engineering
+# Ignore all notebooks except Phase 4 feature engineering
 notebooks/*
-!notebooks/03_model_training.ipynb
+!notebooks/04_model_explainability_and_impact.ipynb
 
 # Ignore scripts until finalized
 scripts/
